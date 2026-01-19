@@ -1,0 +1,11 @@
+prefix=@CMAKE_INSTALL_PREFIX@
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libsff
+Description: SFF sprite file library
+Version: @PROJECT_VERSION@
+Requires: libpng zlib
+Libs: -L${libdir} -lsff
+Cflags: -I${includedir}

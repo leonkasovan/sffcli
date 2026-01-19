@@ -1,0 +1,44 @@
+# Build directories
+build/
+bin/
+lib/
+
+# CMake files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile.cmake
+*.cmake
+!CMakeLists.txt
+
+# Object files
+*.o
+*.obj
+*.lo
+
+# Libraries
+*.a
+*.so
+*.so.*
+*.dylib
+*.lib
+*.dll
+
+# Executables
+sffcli
+*.exe
+*.out
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.log
+
+# pkg-config generated file
+libsff.pc
