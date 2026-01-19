@@ -6,6 +6,10 @@
 #include <sys/stat.h>
 #include <algorithm>
 
+#ifdef _WIN32
+#include <direct.h>
+#endif
+
 namespace sff {
 
 // SFF v1 header structure
@@ -95,7 +99,6 @@ bool SFFFile::Impl::loadV1(std::ifstream& file) {
     // Read sprites
     for (uint32_t i = 0; i < header.image_count; i++) {
         SFFv1SubfileHeader subheader;
-        uint32_t current_pos = file.tellg();
         
         file.read(reinterpret_cast<char*>(&subheader), sizeof(subheader));
         
@@ -284,9 +287,9 @@ bool SFFFile::extractAllSprites(const std::string& output_dir) const {
     
     for (size_t i = 0; i < pImpl->sprites.size(); i++) {
         const Sprite& sprite = pImpl->sprites[i];
-        char filename[256];
-        snprintf(filename, sizeof(filename), "%s/sprite_%04u_%04u.png",
-                 output_dir.c_str(), sprite.info.group, sprite.info.index);
+        std::string filename = output_dir + "/sprite_" + 
+                              std::to_string(sprite.info.group) + "_" + 
+                              std::to_string(sprite.info.index) + ".png";
         
         if (!extractSprite(i, filename)) {
             return false;

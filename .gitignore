@@ -2,6 +2,7 @@
 build/
 bin/
 lib/
+cmake-build/
 
 # CMake files
 CMakeFiles/

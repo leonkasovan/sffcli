@@ -147,7 +147,7 @@ int main(int argc, char* argv[]) {
         
         std::cout << "Extracting sprite " << sprite_index << " to: " << output_path << "\n";
         if (!sff.extractSprite(sprite_index, output_path)) {
-            std::cerr << "Error extracting sprite\n";
+            std::cerr << "Error extracting sprite: " << sff.getError() << "\n";
             return 1;
         }
         std::cout << "Successfully extracted sprite\n";
@@ -162,7 +162,7 @@ int main(int argc, char* argv[]) {
         
         std::cout << "Extracting palette " << palette_index << " to: " << output_path << "\n";
         if (!sff.extractPalette(palette_index, output_path)) {
-            std::cerr << "Error extracting palette\n";
+            std::cerr << "Error extracting palette: " << sff.getError() << "\n";
             return 1;
         }
         std::cout << "Successfully extracted palette\n";
